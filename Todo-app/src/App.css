@@ -1,11 +1,132 @@
-input {
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* AddTodo Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="date"] {
   width: 100%;
 }
 
-.kg-button {
-  min-width: 80px;
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.kg-row {
-  margin: 10px 5px;
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+
+/* TodoItems Styles */
+.todo-items {
+  margin-top: 20px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color: #f0f0f0;
+}
+
+.todo-item .details {
+  flex: 1;
+  text-align: left;
+}
+
+.todo-item h3 {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.todo-item .due-date {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.todo-item .delete-btn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-item .delete-btn:hover {
+  background-color: #d62c2f;
+  transform: translateY(-2px);
+}
+
+.todo-item .delete-btn:active {
+  background-color: #d62c2f;
+  transform: translateY(2px);
+}
+
+/* Welcome Message Styles */
+.welcome-message {
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 20px;
 }

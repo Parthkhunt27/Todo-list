@@ -1,3 +1,52 @@
-.itemsContainer {
-  text-align: left;
+.todo-items {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.todo-item .details {
+  flex: 1;
+}
+
+.todo-item .due-date {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.todo-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.todo-item .delete-btn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-item .delete-btn:hover {
+  background-color: #d62c2f;
+  transform: translateY(-2px);
+}
+
+.todo-item .delete-btn:active {
+  background-color: #d62c2f;
+  transform: translateY(2px);
 }

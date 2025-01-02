@@ -3,16 +3,23 @@ import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomeMessage";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [todoItems, setTodoItems] = useState([]);
+  const [todoItems, setTodoItems] = useState(() => {
+    const storedItems = localStorage.getItem("todoItems");
+    return storedItems ? JSON.parse(storedItems) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+  }, [todoItems]);
 
   const handleNewItem = (itemName, itemDueDate) => {
-    console.log(`New Item Added: ${itemName} Date:${itemDueDate}`);
+    console.log(`New Item Added: ${itemName} Date: ${itemDueDate}`);
     const newTodoItems = [
       ...todoItems,
-      { name: itemName, dueDate: itemDueDate },
+      { name: itemName, dueDate: itemDueDate }, // Removed duetime
     ];
     setTodoItems(newTodoItems);
   };
@@ -26,11 +33,8 @@ function App() {
     <center className="todo-container">
       <AppName />
       <AddTodo onNewItem={handleNewItem} />
-      {todoItems.length === 0 && <WelcomeMessage></WelcomeMessage>}
-      <TodoItems
-        todoItems={todoItems}
-        onDeleteClick={handleDeleteItem}
-      ></TodoItems>
+      {todoItems.length === 0 && <WelcomeMessage />}
+      <TodoItems todoItems={todoItems} onDeleteClick={handleDeleteItem} />
     </center>
   );
 }
